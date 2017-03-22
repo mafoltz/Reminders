@@ -7,15 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <stdlib.h>
+#import "SummaryUI.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
-        
+        SummaryUI *canvas;
+        canvas = [[SummaryUI alloc]init];
+        [canvas printInitialMenu];
+        getchar();
+    
+        system("clear");
 //        NSLog(@"git add .");
         // git commit -m "Descrição do commit"
         // git push
+        
     }
     return 0;
 }

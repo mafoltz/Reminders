@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		57AE8D6D1E831BE20018AE26 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 57AE8D6C1E831BE20018AE26 /* main.m */; };
+		E86EEFEC1E831F940034AE48 /* SummaryUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E86EEFEB1E831F940034AE48 /* SummaryUI.m */; };
+		E86EEFEF1E831FB20034AE48 /* AddTaskUI.m in Sources */ = {isa = PBXBuildFile; fileRef = E86EEFEE1E831FB20034AE48 /* AddTaskUI.m */; };
+		E86EEFF21E8321AD0034AE48 /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = E86EEFF11E8321AD0034AE48 /* Task.m */; };
+		E86EEFF51E8323C30034AE48 /* TaskController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86EEFF41E8323C30034AE48 /* TaskController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +29,14 @@
 /* Begin PBXFileReference section */
 		57AE8D691E831BE20018AE26 /* Reminders */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Reminders; sourceTree = BUILT_PRODUCTS_DIR; };
 		57AE8D6C1E831BE20018AE26 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E86EEFEA1E831F940034AE48 /* SummaryUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SummaryUI.h; sourceTree = "<group>"; };
+		E86EEFEB1E831F940034AE48 /* SummaryUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SummaryUI.m; sourceTree = "<group>"; };
+		E86EEFED1E831FB20034AE48 /* AddTaskUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddTaskUI.h; sourceTree = "<group>"; };
+		E86EEFEE1E831FB20034AE48 /* AddTaskUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddTaskUI.m; sourceTree = "<group>"; };
+		E86EEFF01E8321AD0034AE48 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		E86EEFF11E8321AD0034AE48 /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		E86EEFF31E8323C30034AE48 /* TaskController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskController.h; sourceTree = "<group>"; };
+		E86EEFF41E8323C30034AE48 /* TaskController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +70,14 @@
 			isa = PBXGroup;
 			children = (
 				57AE8D6C1E831BE20018AE26 /* main.m */,
+				E86EEFEA1E831F940034AE48 /* SummaryUI.h */,
+				E86EEFEB1E831F940034AE48 /* SummaryUI.m */,
+				E86EEFED1E831FB20034AE48 /* AddTaskUI.h */,
+				E86EEFEE1E831FB20034AE48 /* AddTaskUI.m */,
+				E86EEFF01E8321AD0034AE48 /* Task.h */,
+				E86EEFF11E8321AD0034AE48 /* Task.m */,
+				E86EEFF31E8323C30034AE48 /* TaskController.h */,
+				E86EEFF41E8323C30034AE48 /* TaskController.m */,
 			);
 			path = Reminders;
 			sourceTree = "<group>";
@@ -119,7 +139,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E86EEFF51E8323C30034AE48 /* TaskController.m in Sources */,
+				E86EEFF21E8321AD0034AE48 /* Task.m in Sources */,
+				E86EEFEC1E831F940034AE48 /* SummaryUI.m in Sources */,
 				57AE8D6D1E831BE20018AE26 /* main.m in Sources */,
+				E86EEFEF1E831FB20034AE48 /* AddTaskUI.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +270,7 @@
 				57AE8D721E831BE20018AE26 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
