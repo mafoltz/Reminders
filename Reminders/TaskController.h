@@ -11,8 +11,11 @@
 @interface TaskController : NSObject
 
 
-@property NSDictionary *taskDictionary;
-@property NSNumber *nextTaskId;
+@property (nonatomic, copy) NSDictionary *tasksDictionary;
+@property NSNumber *nextTaskToNotifyId;
 
+- (instancetype)init;
+- (void)addTaskWithDate:(NSString *)taskDate andMessage:(NSString *)taskMessage;
+- (void)deleteTaskWithId:(NSString *)taskId;
 
 @end
