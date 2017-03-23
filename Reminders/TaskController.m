@@ -103,4 +103,8 @@
         return NO;
     }
 }
+
+- (NSDate *)getNextTaskDate{
+    return [_pendingTasks[0] taskDate];
+}
 @end

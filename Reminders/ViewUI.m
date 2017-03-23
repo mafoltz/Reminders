@@ -28,6 +28,8 @@
     int option1;
     //VER NSTIMER
     //NSTimer *timerToTask;
+    //NSTimeInterval *timeBetweenDates = [[_taskController getNextTaskDate] timeIntervalSinceDate:[NSDate date]];
+    
     while(isInProgram){
         //Prints the initial menu
         NSLog(@"----------------------------------------------------------------");
@@ -37,7 +39,7 @@
         NSLog(@"--------------------  1-Add Reminders   ------------------------");
         NSLog(@"--------------------  2-Show Task List  ------------------------");
         NSLog(@"--------------------  3-Delete Task     ------------------------");
-        NSLog(@"--------------------  3-Exit            ------------------------");
+        NSLog(@"--------------------  4-Exit            ------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
@@ -77,22 +79,27 @@
 }
 
 -(void) printTaskListMenu {
-    NSLog(@"----------------------------------------------------------------");
-    NSLog(@"---------------  1-Show Only Not Completed   -------------------");
-    NSLog(@"---------------  2-Show All                  -------------------");
-    NSLog(@"----------------------------------------------------------------");
-    int option;
-    printf("Command> ");
-    scanf("%d", &option);
-    
-    switch(option){
-        case 1:
-            [self printNotCompleted];
-            break;
-        case 2:
-            [self printNotCompleted];
-            [self printCompleted];
-            break;
+    if([_taskController isEmpty]){
+        NSLog(@"There is no task!");
+    }else{
+        NSLog(@"----------------------------------------------------------------");
+        NSLog(@"---------------  1-Show Only Not Completed   -------------------");
+        NSLog(@"---------------  2-Show All                  -------------------");
+        NSLog(@"----------------------------------------------------------------");
+        int option;
+        printf("Command> ");
+        scanf("%d", &option);
+        
+        switch(option){
+            case 1:
+                [self printNotCompleted];
+                break;
+            case 2:
+                [self printNotCompleted];
+                [self printCompleted];
+                break;
+        }
+
     }
 }
 
