@@ -15,17 +15,17 @@
     // Keyboard buffer
     char buffer[100];
     
-    NSLog(@"Message:");
+    printf("Message: ");
     scanf("%s", buffer);
     _taskMsg = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
     
     
-    NSLog(@"Date:");
+    printf("Date (dd/MM/yyyy): ");
     scanf("%s", buffer);
     _date = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
     
     
-    NSLog(@"Time:");
+    printf("Time (HH:mm): ");
     scanf("%s", buffer);
     _time = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
     

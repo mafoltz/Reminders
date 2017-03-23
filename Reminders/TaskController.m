@@ -46,7 +46,7 @@
     for(NSString *taskID in self.tasks){
         Task *task = self.tasks[taskID];
         if(!task.isCompleted)
-            [pendingTasks addObject:task];
+            [pendingTasks addObject:[task description]];
     }
     
     _pendingTasks = [[[NSArray alloc] initWithArray:pendingTasks] copy];
@@ -58,7 +58,7 @@
     for(NSString *taskID in self.tasks){
         Task *task = self.tasks[taskID];
         if(task.isCompleted)
-            [completedTasks addObject:task];
+            [completedTasks addObject:[task description]];
     }
     
     _completedTasks = [[[NSArray alloc] initWithArray:completedTasks] copy];
@@ -77,7 +77,6 @@
 }
 
 - (void)changeTaskStatusWithId:(NSString *)taskId {
-    //[self.tasks setObject:[[self.tasks objectForKey:taskId] changeStatus] forKey:taskId];
     [self setPendingTasks];
     [self setCompletedTasks];
 }

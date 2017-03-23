@@ -40,7 +40,7 @@
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
         
-        NSLog(@"Type what you want: ");
+        printf("Command > ");
         scanf("%d", &option1);
         switch (option1) {
             case 1:
@@ -48,8 +48,7 @@
                 getchar();
                 break;
             case 2:
-                NSLog(@"SHOW TASK LIST");
-                system("clear");
+                [self printTaskListMenu];
                 getchar();
                 break;
             case 3:
@@ -69,6 +68,31 @@
 -(void) addTask {
     [self.addTaskControl taskMenu];
     [self.taskController addTaskWithDate:self.addTaskControl.date Hour:self.addTaskControl.time andMessage:self.addTaskControl.taskMsg];
+}
+
+-(void) printTaskListMenu {
+    NSLog(@"----------------------------------------------------------------");
+    NSLog(@"---------------  1-Show Only Not Completed   -------------------");
+    NSLog(@"---------------  2-Show All                  -------------------");
+    NSLog(@"----------------------------------------------------------------");
+    int option;
+    printf("Command> ");
+    scanf("%d", &option);
+    
+    switch(option){
+        case 1:
+            [self printNotCompleted];
+    }
+    
+    
+}
+
+-(void) printNotCompleted {
+    NSArray *taskList = self.taskController.pendingTasks;
+    for (NSString *task in taskList){
+        NSLog(@"%@", task);
+        
+    }
 }
 
 
