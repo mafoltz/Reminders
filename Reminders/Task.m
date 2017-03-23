@@ -14,16 +14,21 @@
 
 @implementation Task
 
-- (instancetype)initWithId:(NSNumber *)taskID
+- (instancetype)initWithId:(NSNumber *)taskID andWithTaskDate:(NSString *)taskDate andtaskMessage:(NSString *)taskMessage
 {
     self = [super init];
     if (self) {
         _isCompleted = NO;
-        _taskDate = [NSDate date];
-        _taskMessage = @"teste";
-        //taskID?
+        _taskDate = [self getDateFromString:taskDate];
+        _taskMessage = taskMessage;
+        
     }
     return self;
+}
+
+
+- (NSDate *)getDateFromString:(NSString *)dateString{
+    return [NSDate date];
 }
 
 @end

@@ -10,6 +10,9 @@
 
 @interface AddTaskUI : SummaryUI
 
+@property NSString *taskName;
+@property NSDate *taskDate;
+@property NSString *taskText;
 
 
 
