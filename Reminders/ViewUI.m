@@ -28,7 +28,12 @@
     int option1;
     //VER NSTIMER
     //NSTimer *timerToTask;
-    //NSTimeInterval *timeBetweenDates = [[_taskController getNextTaskDate] timeIntervalSinceDate:[NSDate date]];
+    //NSDate *t1 = [self.taskController getNextTaskDate];
+    //NSDate *t2 = [NSDate date];
+//    if(!self.taskController isEmpty){
+//        NSTimeInterval *timeBetweenDates = [[self.taskController getNextTaskDate] timeIntervalSinceDate:[NSDate date]];
+//    }
+    
     
     while(isInProgram){
         //Prints the initial menu
