@@ -65,11 +65,10 @@
 - (void)addTaskWithDate:(NSString *)taskDate Hour:(NSString *)taskHour andMessage:(NSString *)taskMessage {
     NSString *taskId = [self nextTaskId];
     
-    [self.tasks insertValue:[[Task alloc] initWithId:taskId
-                                     andWithTaskDate:taskDate
-                                         andTaskHour:taskHour
-                                      andtaskMessage:taskMessage]
-          inPropertyWithKey:taskId];
+    [self.tasks setValue:[[Task alloc] initWithId:taskId
+                                 andWithTaskDate:taskDate
+                                     andTaskHour:taskHour
+                                   andtaskMessage:taskMessage] forKey:taskId];
     
     [self setPendingTasks];
     [self setCompletedTasks];
