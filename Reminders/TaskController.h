@@ -15,7 +15,7 @@
 @property NSNumber *nextTaskToNotifyId;
 
 - (instancetype)init;
-- (void)addTaskWithDate:(NSString *)taskDate andMessage:(NSString *)taskMessage;
+- (void)addTaskWithDate:(NSString *)taskDate Hour:taskHour andMessage:(NSString *)taskMessage;
 - (void)deleteTaskWithId:(NSString *)taskId;
 
 @end
