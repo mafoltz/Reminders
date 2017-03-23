@@ -12,7 +12,7 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        BOOL isInProgram = YES;
+   /*     BOOL isInProgram = YES;
         //NSNumber *option = [[NSNumber alloc]init];
         int option1;
         
@@ -50,7 +50,6 @@ int main(int argc, const char * argv[]) {
 //        NSLog(@"git add .");
         // git commit -m "Descrição do commit"
         // git push
-        
-    }
+        */    }
     return 0;
 }

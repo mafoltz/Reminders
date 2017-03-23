@@ -8,7 +8,7 @@
 
 #import "SummaryUI.h"
 
-@interface AddTaskUI : SummaryUI
+@interface AddTaskUI : NSObject
 
 @property NSString *taskName;
 @property NSDate *taskDate;
