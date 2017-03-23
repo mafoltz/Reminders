@@ -43,7 +43,8 @@
 - (void)setPendingTasks {
     NSMutableArray *pendingTasks = [[NSMutableArray alloc] init];
     
-    for(Task *task in self.tasks) {
+    for(NSString *taskID in self.tasks){
+        Task *task = self.tasks[taskID];
         if(!task.isCompleted)
             [pendingTasks addObject:task];
     }
@@ -54,7 +55,8 @@
 - (void)setCompletedTasks {
     NSMutableArray *completedTasks = [[NSMutableArray alloc] init];
     
-    for(Task *task in self.tasks) {
+    for(NSString *taskID in self.tasks){
+        Task *task = self.tasks[taskID];
         if(task.isCompleted)
             [completedTasks addObject:task];
     }
