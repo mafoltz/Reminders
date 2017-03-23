@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "TaskController.h"
 #import "AddTaskUI.h"
+#include <stdlib.h>
 
 
 @interface ViewUI : NSObject

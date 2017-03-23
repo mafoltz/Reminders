@@ -9,10 +9,11 @@
 
 @interface AddTaskUI : NSObject
 
-@property NSString *taskName;
-@property NSDate *taskDate;
-@property NSString *taskText;
+@property (nonatomic, readonly) NSString* taskMsg;
+@property (nonatomic, readonly) NSString* date;
+@property (nonatomic, readonly) NSString* time;
 
 
+-(void) taskMenu;
 
 @end

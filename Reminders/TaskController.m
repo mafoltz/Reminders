@@ -37,7 +37,7 @@
     return [self.currentTaskId stringValue];
 }
 
-- (void)addTaskWithDate:(NSString *)taskDate Hour:taskHour andMessage:(NSString *)taskMessage {
+- (void)addTaskWithDate:(NSString *)taskDate Hour:(NSString *)taskHour andMessage:(NSString *)taskMessage {
     NSString *taskId = [self nextTaskId];
     
     [self.tasks insertValue:[[Task alloc] initWithId:taskId
