@@ -26,15 +26,38 @@
     self = [super init];
     if (self) {
         _tasks = [[NSMutableDictionary alloc] init];
-        _tasksDictionary = [self.tasks copy];
         _currentTaskId = 0;
+        [self setPendingTasks];
+        [self setCompletedTasks];
     }
     return self;
 }
 
-- (NSString *)nextTaskId{
+- (NSString *)nextTaskId {
     self.currentTaskId = @([self.currentTaskId integerValue] + 1);
     return [self.currentTaskId stringValue];
+}
+
+- (void)setPendingTasks {
+    NSMutableArray *pendingTasks = [[NSMutableArray alloc] init];
+    
+    for(Task *task in self.tasks) {
+        if(!task.isCompleted)
+            [pendingTasks addObject:task];
+    }
+    
+    _pendingTasks = [[[NSArray alloc] initWithArray:pendingTasks] copy];
+}
+
+- (void)setCompletedTasks {
+    NSMutableArray *completedTasks = [[NSMutableArray alloc] init];
+    
+    for(Task *task in self.tasks) {
+        if(task.isCompleted)
+            [completedTasks addObject:task];
+    }
+    
+    _completedTasks = [[[NSArray alloc] initWithArray:completedTasks] copy];
 }
 
 - (void)addTaskWithDate:(NSString *)taskDate Hour:(NSString *)taskHour andMessage:(NSString *)taskMessage {
@@ -46,12 +69,20 @@
                                       andtaskMessage:taskMessage]
           inPropertyWithKey:taskId];
     
-    self.tasksDictionary = [self.tasks copy];
+    [self setPendingTasks];
+    [self setCompletedTasks];
+}
+
+- (void)changeTaskStatusWithId:(NSString *)taskId {
+    //[self.tasks setObject:[[self.tasks objectForKey:taskId] changeStatus] forKey:taskId];
+    [self setPendingTasks];
+    [self setCompletedTasks];
 }
 
 - (void)deleteTaskWithId:(NSString *)taskId {
     [self.tasks removeObjectForKey:taskId];
-    self.tasksDictionary = [self.tasks copy];
+    [self setPendingTasks];
+    [self setCompletedTasks];
 }
 
 @end
