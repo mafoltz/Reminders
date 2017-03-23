@@ -15,6 +15,8 @@
 @property (nonatomic) NSNumber *currentTaskId;
 
 - (NSString *)nextTaskId;
+- (void)setPendingTasks;
+- (void)setCompletedTasks;
 
 @end
 
