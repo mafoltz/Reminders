@@ -7,7 +7,7 @@
 //
 
 #import "ViewUI.h"
-#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
+
 
 @implementation ViewUI
 
@@ -44,7 +44,6 @@
         scanf("%d", &option1);
         switch (option1) {
             case 1:
-                system("clear");
                 [self addTask];
                 getchar();
                 break;
