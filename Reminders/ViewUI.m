@@ -26,7 +26,8 @@
     
     BOOL isInProgram = YES;
     int option1;
-    
+    //VER NSTIMER
+    //NSTimer *timerToTask;
     while(isInProgram){
         //Prints the initial menu
         NSLog(@"----------------------------------------------------------------");
@@ -35,6 +36,7 @@
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"--------------------  1-Add Reminders   ------------------------");
         NSLog(@"--------------------  2-Show Task List  ------------------------");
+        NSLog(@"--------------------  3-Delete Task     ------------------------");
         NSLog(@"--------------------  3-Exit            ------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
@@ -52,6 +54,10 @@
                 getchar();
                 break;
             case 3:
+                [self deleteTask];
+                getchar();
+                break;
+            case 4:
                 isInProgram = NO;
                 system("clear");
                 getchar();
@@ -82,9 +88,12 @@
     switch(option){
         case 1:
             [self printNotCompleted];
+            break;
+        case 2:
+            [self printNotCompleted];
+            [self printCompleted];
+            break;
     }
-    
-    
 }
 
 -(void) printNotCompleted {
@@ -95,7 +104,27 @@
     }
 }
 
+-(void) printCompleted {
+    NSArray *taskList = self.taskController.completedTasks;
+    for (NSString *task in taskList){
+        NSLog(@"%@", task);
+        
+    }
+}
 
 
+- (void)deleteTask{
+    int taskIdToDelete;
+    if([_taskController isEmpty]){
+        NSLog(@"There is no task!");
+    }else{
+        [self printNotCompleted];
+        [self printCompleted];
+        NSLog(@"Type an task ID to delete");
+        printf("Command> ");
+        scanf("%d", &taskIdToDelete);
+        [self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]];
+    }
+}
 
 @end

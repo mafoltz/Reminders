@@ -12,11 +12,12 @@
 
 
 @property (nonatomic, readonly, copy) NSArray *pendingTasks, *completedTasks;
-@property (nonatomic, readonly) NSNumber *nextTaskToNotifyId;
 
 - (instancetype)init;
 - (void)addTaskWithDate:(NSString *)taskDate Hour:(NSString *)taskHour andMessage:(NSString *)taskMessage;
 - (void)changeTaskStatusWithId:(NSString *)taskId;
 - (void)deleteTaskWithId:(NSString *)taskId;
+-(void)getCurrentTask;
+- (BOOL)isEmpty;
 
 @end

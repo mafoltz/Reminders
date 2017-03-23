@@ -16,5 +16,6 @@
 @property NSString *taskMessage;
 
 - (instancetype)initWithId:(NSString *)taskID andWithTaskDate:(NSString *)taskDate andTaskHour:(NSString *)taskHour andtaskMessage:(NSString *)taskMessage;
+- (void)changeStatus;
 
 @end

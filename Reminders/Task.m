@@ -36,8 +36,15 @@
     [fullDate appendString:@" "];
     [fullDate appendString:hour];
     [fullDate appendString:@":00"];
-    NSLog(@"%@", fullDate);
+    //NSLog(@"%@", fullDate);
     return fullDate;
+}
+
+- (void) changeStatus {
+    if(self.isCompleted)
+        _isCompleted = NO;
+    else
+        _isCompleted = YES;
 }
 
 - (NSString *)description

@@ -42,24 +42,21 @@
 
 - (void)setPendingTasks {
     NSMutableArray *pendingTasks = [[NSMutableArray alloc] init];
-    
+    NSMutableArray *pending      = [[NSMutableArray alloc] init];
     for(NSString *taskId in self.tasks){
         Task *task = self.tasks[taskId];
         if(!task.isCompleted)
-            [pendingTasks addObject:[task description]];
+            [pending addObject:task];
     }
     
-    NSArray *pendingTasksSortedByDate = [pendingTasks sortedArrayUsingComparator:^NSComparisonResult(id _Nonnull obj1, id _Nonnull obj2) {
-        NSDate *date1 = [obj1 date];
-        NSDate *date2 = [obj2 date];
-        
-        if([date1 compare:date2])
-            return NSOrderedDescending;
-        else
-            return NSOrderedAscending;
-    }];
+    NSSortDescriptor *sortDescriptor  = [[NSSortDescriptor alloc]initWithKey:@"taskDate" ascending:YES];
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *pendingTasksSortedByDate = [pending sortedArrayUsingDescriptors:sortDescriptors];
     
-    _pendingTasks = [[[NSArray alloc] initWithArray:pendingTasksSortedByDate] copy];
+    for(Task *task in pendingTasksSortedByDate){
+        [pendingTasks addObject:[task description]];
+        }
+    _pendingTasks = [[[NSArray alloc] initWithArray:pendingTasks] copy];
 }
 
 - (void)setCompletedTasks {
@@ -87,7 +84,8 @@
 }
 
 - (void)changeTaskStatusWithId:(NSString *)taskId {
-    [self.tasks setObject:[[self.tasks objectForKey:taskId] changeStatus] forKey:taskId];
+    Task *aux = self.tasks[taskId];
+    aux.isCompleted = !aux.isCompleted;
     [self setPendingTasks];
     [self setCompletedTasks];
 }
@@ -98,4 +96,11 @@
     [self setCompletedTasks];
 }
 
+- (BOOL)isEmpty{
+    if([_tasks count] == 0)
+        return YES;
+    else{
+        return NO;
+    }
+}
 @end
