@@ -8,10 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <stdlib.h>
-#import "SummaryUI.h"
+#import "ViewUI.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
+        
+        ViewUI *canvas = [[ViewUI alloc] init];
+        
+        [canvas startReminder];
+        
    /*     BOOL isInProgram = YES;
         //NSNumber *option = [[NSNumber alloc]init];
         int option1;

@@ -24,10 +24,7 @@
 -(void) startReminder {
     
     BOOL isInProgram = YES;
-    //NSNumber *option = [[NSNumber alloc]init];
     int option1;
-    
-    SummaryUI *canvas;
     
     while(isInProgram){
         //Prints the initial menu

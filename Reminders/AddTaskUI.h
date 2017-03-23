@@ -5,8 +5,7 @@
 //  Created by Gunter Hertz on 22/03/17.
 //  Copyright © 2017 Marcelo Andrighetto Foltz. All rights reserved.
 //
-
-#import "SummaryUI.h"
+#import <Foundation/Foundation.h>
 
 @interface AddTaskUI : NSObject
 
