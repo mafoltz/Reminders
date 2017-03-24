@@ -97,7 +97,7 @@
 }
 
 - (BOOL)deleteTaskWithId:(NSString *)taskId {
-    if([self.tasks doesContain:taskId]){
+    if([self.tasks objectForKey:taskId]){
         [self.tasks removeObjectForKey:taskId];
         [self setPendingTasks];
         [self setCompletedTasks];

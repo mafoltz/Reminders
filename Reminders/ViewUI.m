@@ -45,7 +45,8 @@
         NSLog(@"--------------------  2-Show Task List  ------------------------");
         NSLog(@"--------------------  3-Mark Task       ------------------------");
         NSLog(@"--------------------  4-Delete Task     ------------------------");
-        NSLog(@"--------------------  5-Exit            ------------------------");
+        NSLog(@"--------------------  5-Edit Task       ------------------------");
+        NSLog(@"--------------------  6-Exit            ------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
@@ -85,6 +86,14 @@
                     break;
                 }
             case 5:
+                if([_taskController isEmpty]){
+                    NSLog(@"There is no task");
+                    break;
+                }else{
+                    NSLog(@"edit task");
+                    break;
+                }
+            case 6:
                 isInProgram = NO;
                 system("clear");
                 getchar();
@@ -160,12 +169,20 @@
         scanf("%d", &taskIdToDelete);
         
         // Prints an error message in case the given ID does not exist
-        if ([self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]]){
+        //if ([self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]]){
+    if([self.taskController deleteTaskWithId:[[[NSNumber alloc] initWithInt:taskIdToDelete] stringValue]]){
             NSLog(@"Task deleted!");
         }
         else {
             NSLog(@"The ID given does not exist! Please, type a valid one!");
         }
+}
+
+- (void)editTask{
+    NSLog(@"----------------------------------------------------------------");
+    NSLog(@"---------------  1-Show Only Not Completed   -------------------");
+    NSLog(@"---------------  2-Show All                  -------------------");
+    NSLog(@"----------------------------------------------------------------");
 }
 
 - (void) markTask {

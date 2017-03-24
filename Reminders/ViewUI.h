@@ -18,6 +18,6 @@
 @property (nonatomic) TaskController    *taskController;
 
 -(instancetype) init;
--(void)         startReminder;
+-(void) startReminder;
 
 @end
