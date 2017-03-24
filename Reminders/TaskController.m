@@ -119,10 +119,12 @@
     return [_pendingTasks[0] taskDate];
 }
 
-- (BOOL)editTask:(NSString*) taskID message: (NSString*) message {
-    Task* aux = self.tasks[taskID];
-    if (aux){
-        aux.taskMessage = message;
+- (BOOL)editTaskWithId:(NSString *)taskId Message:(NSString *)taskMessage {
+    Task *editableTask = [self.tasks objectForKey:taskId];
+    if(editableTask) {
+        [editableTask setTaskMessage:taskMessage];
+        [self setPendingTasks];
+        [self setCompletedTasks];
         return YES;
     }
     else
