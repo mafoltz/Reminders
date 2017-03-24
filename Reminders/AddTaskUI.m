@@ -13,11 +13,12 @@
 
 -(void) taskMenu {
     // Keyboard buffer
-    char buffer[100];
+    char buffer[200];
     
     printf("Message: ");
-    scanf("%s", buffer);
-    _taskMsg = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    fgets(buffer,100,stdin);
+    NSString *taskMessage =[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    _taskMsg = [taskMessage substringToIndex:([taskMessage length] - 1)];
     
     
     printf("Date (dd/MM/yyyy): ");

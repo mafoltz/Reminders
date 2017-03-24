@@ -55,6 +55,7 @@
         scanf("%d", &option1);
         switch (option1) {
             case 1:
+                fpurge(stdin);
                 [self addTask];
                 getchar();
                 break;
@@ -187,12 +188,14 @@
     [self printCompleted];
     printf("Type an task ID to edit: ");
     scanf("%d", &wantedTask);
-    char buffer[100];
-    
+    char buffer[200];
+    fpurge(stdin);
     printf("Message: ");
-    scanf("%s", buffer);
-    [_taskController editTaskWithId:[NSString stringWithFormat:@"%d", wantedTask]
-                            Message:[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]];
+    fgets(buffer, 150, stdin);
+    NSString *taskMessage =[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+    
+    [self.taskController editTaskWithId:[NSString stringWithFormat:@"%d", wantedTask]
+                            Message:[taskMessage substringToIndex:([taskMessage length] - 1)]];
     
 }
 
