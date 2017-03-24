@@ -38,13 +38,14 @@
     while(isInProgram){
         //Prints the initial menu
         NSLog(@"----------------------------------------------------------------");
-        NSLog(@"--------------------------REMINDERS-----------------------------");
+        NSLog(@"--------------------------REMINDER------------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
-        NSLog(@"--------------------  1-Add Reminders   ------------------------");
+        NSLog(@"--------------------  1-Add Reminder    ------------------------");
         NSLog(@"--------------------  2-Show Task List  ------------------------");
-        NSLog(@"--------------------  3-Delete Task     ------------------------");
-        NSLog(@"--------------------  4-Exit            ------------------------");
+        NSLog(@"--------------------  3-Mark Task       ------------------------");
+        NSLog(@"--------------------  4-Delete Task     ------------------------");
+        NSLog(@"--------------------  5-Exit            ------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"----------------------------------------------------------------");
@@ -61,10 +62,14 @@
                 getchar();
                 break;
             case 3:
-                [self deleteTask];
+                [self markTask];
                 getchar();
                 break;
             case 4:
+                [self deleteTask];
+                getchar();
+                break;
+            case 5:
                 isInProgram = NO;
                 system("clear");
                 getchar();
@@ -136,6 +141,20 @@
         printf("Command> ");
         scanf("%d", &taskIdToDelete);
         [self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]];
+    }
+}
+
+- (void) markTask {
+    int taskIDToMark;
+    if([_taskController isEmpty]){
+        NSLog(@"There is no task!");
+    }else{
+        [self printNotCompleted];
+        [self printCompleted];
+        NSLog(@"Type an task ID to mark as done");
+        printf("Command> ");
+        scanf("%d", &taskIDToMark);
+        [self.taskController changeTaskStatusWithId:[NSString stringWithFormat:@"%d", taskIDToMark]];
     }
 }
 
