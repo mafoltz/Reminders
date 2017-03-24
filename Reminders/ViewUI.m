@@ -90,7 +90,7 @@
                     NSLog(@"There is no task");
                     break;
                 }else{
-                    NSLog(@"edit task");
+                    [self editTaskMenu];
                     break;
                 }
             case 6:
@@ -170,7 +170,7 @@
         
         // Prints an error message in case the given ID does not exist
         //if ([self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]]){
-    if([self.taskController deleteTaskWithId:[[[NSNumber alloc] initWithInt:taskIdToDelete] stringValue]]){
+        if([self.taskController deleteTaskWithId:[[[NSNumber alloc] initWithInt:taskIdToDelete] stringValue]]){
             NSLog(@"Task deleted!");
         }
         else {
@@ -178,11 +178,22 @@
         }
 }
 
-- (void)editTask{
-    NSLog(@"----------------------------------------------------------------");
-    NSLog(@"---------------  1-Show Only Not Completed   -------------------");
-    NSLog(@"---------------  2-Show All                  -------------------");
-    NSLog(@"----------------------------------------------------------------");
+- (void)editTaskMenu{
+    //imprimir lista de tasks
+    //selecionar id
+    //editar texto
+    int wantedTask;
+    [self printNotCompleted];
+    [self printCompleted];
+    printf("Type an task ID to edit: ");
+    scanf("%d", &wantedTask);
+    char buffer[100];
+    
+    printf("Message: ");
+    scanf("%s", buffer);
+    [_taskController editTaskWithId:[NSString stringWithFormat:@"%d", wantedTask]
+                            Message:[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding]];
+    
 }
 
 - (void) markTask {
