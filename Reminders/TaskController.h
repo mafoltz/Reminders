@@ -21,6 +21,7 @@
 - (BOOL)isEmpty;
 - (NSDate *)getNextTaskDate;
 - (BOOL)isAnyPendingTaks;
+- (BOOL)containsId:(NSString *)taskId;
 
 
 @end

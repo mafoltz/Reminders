@@ -139,4 +139,12 @@
     }
 
 }
+
+- (BOOL)containsId:(NSString *)taskId{
+    if([self.tasks objectForKey:taskId])
+        return YES;
+    else
+        return NO;
+}
+
 @end

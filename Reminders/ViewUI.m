@@ -188,14 +188,20 @@
     [self printCompleted];
     printf("Type an task ID to edit: ");
     scanf("%d", &wantedTask);
-    char buffer[200];
-    fpurge(stdin);
-    printf("Message: ");
-    fgets(buffer, 150, stdin);
-    NSString *taskMessage =[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
-    
-    [self.taskController editTaskWithId:[NSString stringWithFormat:@"%d", wantedTask]
-                            Message:[taskMessage substringToIndex:([taskMessage length] - 1)]];
+    if([self.taskController containsId:[NSString stringWithFormat:@"%d", wantedTask]]){
+        char buffer[200];
+        fpurge(stdin);
+        printf("Message: ");
+        fgets(buffer, 150, stdin);
+        NSString *taskMessage =[NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+        if(![self.taskController editTaskWithId:[NSString stringWithFormat:@"%d", wantedTask]
+                                   Message:[taskMessage substringToIndex:([taskMessage length] - 1)]]){
+            NSLog(@"The ID given does not exist! Please, type a valid one!");
+        }
+
+    }else{
+        NSLog(@"The ID given does not exist! Please, type a valid one!");
+    }
     
 }
 
