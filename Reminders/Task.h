@@ -10,10 +10,10 @@
 
 @interface Task : NSObject
 
-@property BOOL isCompleted;
-@property (readonly)NSString *taskID;
-@property NSDate *taskDate;
-@property NSString *taskMessage;
+@property (nonatomic)BOOL isCompleted;
+@property (nonatomic,readonly)NSString *taskID;
+@property (nonatomic,readonly)NSDate *taskDate;
+@property (nonatomic)NSString *taskMessage;
 
 - (instancetype)initWithId:(NSString *)taskID andWithTaskDate:(NSString *)taskDate andTaskHour:(NSString *)taskHour andtaskMessage:(NSString *)taskMessage;
 - (void)changeStatus;
