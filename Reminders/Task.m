@@ -49,7 +49,10 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"ID: %@\t\t %@ \t\t\"%@\"", self.taskID,[self.taskDate description], self.taskMessage];
+    return [NSString stringWithFormat:@"ID: %@\t\t %@ \t\t\"%@\"",
+            self.taskID,
+            [self.taskDate descriptionWithLocale:[NSLocale currentLocale]],
+            self.taskMessage];
 }
 @end
 
