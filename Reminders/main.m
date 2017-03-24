@@ -12,14 +12,9 @@
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        
         ViewUI *canvas = [[ViewUI alloc] init];
-        
         [canvas startReminder];
-        
-//        @"git add .");
-        // git commit -m "Descrição do commit"
-        // git push
-           }
+    }
+    
     return 0;
 }
