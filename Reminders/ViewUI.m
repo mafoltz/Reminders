@@ -58,17 +58,32 @@
                 getchar();
                 break;
             case 2:
+                if([_taskController isEmpty]){
+                    NSLog(@"There is no task!");
+                    break;
+                }else{
                 [self printTaskListMenu];
                 getchar();
                 break;
+                }
             case 3:
-                [self markTask];
-                getchar();
-                break;
+                if([_taskController isEmpty]){
+                    NSLog(@"There is no task!");
+                    break;
+                }else{
+                    [self markTask];
+                    getchar();
+                    break;
+                }
             case 4:
-                [self deleteTask];
-                getchar();
-                break;
+                if([_taskController isEmpty]){
+                    NSLog(@"There is no task!");
+                    break;
+                }else{
+                    [self deleteTask];
+                    getchar();
+                    break;
+                }
             case 5:
                 isInProgram = NO;
                 system("clear");
@@ -89,9 +104,6 @@
 }
 
 -(void) printTaskListMenu {
-    if([_taskController isEmpty]){
-        NSLog(@"There is no task!");
-    }else{
         NSLog(@"----------------------------------------------------------------");
         NSLog(@"---------------  1-Show Only Not Completed   -------------------");
         NSLog(@"---------------  2-Show All                  -------------------");
@@ -102,15 +114,24 @@
         
         switch(option){
             case 1:
-                [self printNotCompleted];
-                break;
+                if([_taskController isAnyPendingTaks]){
+                    NSLog(@"Pending Tasks:");
+                    [self printNotCompleted];
+                    break;
+                }else{
+                    NSLog(@"There is no pending tasks.");
+                    break;
+                }
             case 2:
+                NSLog(@"Pending Tasks:");
                 [self printNotCompleted];
+                NSLog(@"Completed Tasks:");
                 [self printCompleted];
                 break;
+            default:
+                NSLog(@"This option is not defined! Type an existing option.");
+                break;
         }
-
-    }
 }
 
 -(void) printNotCompleted {
@@ -131,10 +152,7 @@
 
 
 - (void)deleteTask{
-    int taskIdToDelete;
-    if([_taskController isEmpty]){
-        NSLog(@"There is no task!");
-    }else{
+        int taskIdToDelete;
         [self printNotCompleted];
         [self printCompleted];
         NSLog(@"Type an task ID to delete");
@@ -148,14 +166,10 @@
         else {
             NSLog(@"The ID given does not exist! Please, type a valid one!");
         }
-    }
 }
 
 - (void) markTask {
     int taskIDToMark;
-    if([_taskController isEmpty]){
-        NSLog(@"There is no task!");
-    }else{
         [self printNotCompleted];
         [self printCompleted];
         NSLog(@"Type an task ID to mark as done");
@@ -168,7 +182,6 @@
         else{
             NSLog(@"The ID given does not exist!");
         }
-    }
 }
 
 @end

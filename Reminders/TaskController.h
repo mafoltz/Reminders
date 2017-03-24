@@ -21,5 +21,7 @@
 //- (void)getCurrentTask;
 - (BOOL)isEmpty;
 - (NSDate *)getNextTaskDate;
+- (BOOL)isAnyPendingTaks;
+
 
 @end

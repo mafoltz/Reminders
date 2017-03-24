@@ -128,4 +128,13 @@
     else
         return NO;
 }
+
+- (BOOL)isAnyPendingTaks{
+    if([_pendingTasks count] == 0){
+        return NO;
+    }else{
+        return YES;
+    }
+
+}
 @end
