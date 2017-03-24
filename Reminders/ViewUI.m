@@ -140,7 +140,14 @@
         NSLog(@"Type an task ID to delete");
         printf("Command> ");
         scanf("%d", &taskIdToDelete);
-        [self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]];
+        
+        // Prints an error message in case the given ID does not exist
+        if ([self.taskController deleteTaskWithId:[NSString stringWithFormat:@"%d", taskIdToDelete]]){
+            NSLog(@"Task deleted!");
+        }
+        else {
+            NSLog(@"The ID given does not exist! Please, type a valid one!");
+        }
     }
 }
 
@@ -154,7 +161,13 @@
         NSLog(@"Type an task ID to mark as done");
         printf("Command> ");
         scanf("%d", &taskIDToMark);
-        [self.taskController changeTaskStatusWithId:[NSString stringWithFormat:@"%d", taskIDToMark]];
+        // Prints an error message in case the given ID does not exist
+        if([self.taskController changeTaskStatusWithId:[NSString stringWithFormat:@"%d", taskIDToMark]]){
+            NSLog(@"Task marked as done!");
+        }
+        else{
+            NSLog(@"The ID given does not exist!");
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 #import "TaskController.h"
 #import "Task.h"
+#define NSLog(FORMAT, ...) printf("%s\n", [[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
 @interface TaskController ()
 
@@ -83,17 +84,27 @@
     [self setCompletedTasks];
 }
 
-- (void)changeTaskStatusWithId:(NSString *)taskId {
+- (BOOL)changeTaskStatusWithId:(NSString *)taskId {
     Task *aux = self.tasks[taskId];
-    aux.isCompleted = !aux.isCompleted;
-    [self setPendingTasks];
-    [self setCompletedTasks];
+    if (aux){
+        aux.isCompleted = !aux.isCompleted;
+        [self setPendingTasks];
+        [self setCompletedTasks];
+        return YES;
+    }
+    else
+        return NO;
 }
 
-- (void)deleteTaskWithId:(NSString *)taskId {
-    [self.tasks removeObjectForKey:taskId];
-    [self setPendingTasks];
-    [self setCompletedTasks];
+- (BOOL)deleteTaskWithId:(NSString *)taskId {
+    if([self.tasks doesContain:taskId]){
+        [self.tasks removeObjectForKey:taskId];
+        [self setPendingTasks];
+        [self setCompletedTasks];
+        return YES;
+    }
+    else
+        return NO;
 }
 
 - (BOOL)isEmpty{
@@ -106,5 +117,15 @@
 
 - (NSDate *)getNextTaskDate{
     return [_pendingTasks[0] taskDate];
+}
+
+- (BOOL)editTask:(NSString*) taskID message: (NSString*) message {
+    Task* aux = self.tasks[taskID];
+    if (aux){
+        aux.taskMessage = message;
+        return YES;
+    }
+    else
+        return NO;
 }
 @end

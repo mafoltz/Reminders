@@ -15,8 +15,9 @@
 
 - (instancetype)init;
 - (void)addTaskWithDate:(NSString *)taskDate Hour:(NSString *)taskHour andMessage:(NSString *)taskMessage;
-- (void)changeTaskStatusWithId:(NSString *)taskId;
-- (void)deleteTaskWithId:(NSString *)taskId;
+- (BOOL)editTask:(NSString*) taskID message: (NSString*) message;
+- (BOOL)changeTaskStatusWithId:(NSString *)taskId;
+- (BOOL)deleteTaskWithId:(NSString *)taskId;
 //- (void)getCurrentTask;
 - (BOOL)isEmpty;
 - (NSDate *)getNextTaskDate;
